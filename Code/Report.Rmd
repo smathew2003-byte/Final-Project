@@ -1,0 +1,57 @@
+---
+title: "Bacterial Coinfections among Patients Hospitalized with Respiratory Viral Illness"
+author: "Sarah Mathew"
+date: "`r Sys.Date()`"
+output: html_document
+params:
+  production: TRUE
+---
+## Introduction
+The dataset is collected by Georgia EIP surveillance conducted by the RESP-NET team. The dataset includes hospitalizations due to Influenza, COVID-19, and RSV infections. Data were obtained through full chart abstractions and includine information on race/ethnicity, sex, age, and positive bacterial cultures.
+
+The objective of the analysis is to characterize bacterial coinfections among patients with viral respiratory illness. Specifically, this analysis aims to: 
+
+* Determine and describe the interactions between viral and bacterial pathogens among bacterial coinfections.
+* Determine and compare the proportions of bacterial coinfections among respiratory viral hospitalizations across viral pathogens (Influenza, COVID-19, and RSV).
+
+```{r, set-chunk-opts, echo = FALSE, eval = params$production}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, load-data}
+here::i_am("Report.Rmd")
+```
+## Tabular analysis
+
+Below, the distribution of bacterial pathogens among bacterial coinfections are shown, by viral pathogen. 
+```{r, table1}
+table1 <- readRDS(
+  here::here("Output/table.rds")
+)
+
+table1
+```
+
+## Graphical analysis
+
+Below, a comparison of the proportions of bacterial coinfection by viral pathogen is shown.
+```{r, figure 1}
+knitr::include_graphics(
+  here::here("Output", "figure.png")
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
